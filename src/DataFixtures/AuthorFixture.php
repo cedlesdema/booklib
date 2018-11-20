@@ -12,7 +12,7 @@ class AuthorFixture extends Fixture
     {
         $authors = [
             ["J.K.", "Rowling"],
-            ["René", "Gosscinny"],
+            ["René", "Goscinny"],
             ["Gustave", "Flaubert"],
             ["Emile", "Zola"],
         ];
