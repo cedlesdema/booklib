@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="book", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_CBE5A331989D9B62", columns={"slug"})}, indexes={@ORM\Index(name="IDX_CBE5A331F675F31B", columns={"author_id"})})
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class Book
 {
@@ -230,6 +231,24 @@ class Book
         }
 
         return $this;
+    }
+
+    // src/Entity/Book.php
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function prePersist()
+    {
+        $this->setCreatedAt( new \DateTime());
+    }
+
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function preUpdate()
+    {
+        $this->setUpdatedAt(new \DateTime());
     }
 
 }
