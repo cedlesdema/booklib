@@ -12,3 +12,5 @@
 ###< symfony/web-server-bundle ###
 
 .idea/
+*.bak
+*.mwb
